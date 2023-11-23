@@ -17,7 +17,7 @@ public class PersonServices {
 
     Logger logger = Logger.getLogger(PersonServices.class.getName());
 
-    public Person findBtId(Long id) {
+    public Person findById(Long id) {
 
         logger.info("Encontrando uma pessoa!");
 
