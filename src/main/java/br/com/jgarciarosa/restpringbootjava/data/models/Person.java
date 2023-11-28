@@ -1,12 +1,19 @@
 package br.com.jgarciarosa.restpringbootjava.data.models;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "person")
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
 public class Person implements Serializable {
 
     @Id
@@ -19,51 +26,4 @@ public class Person implements Serializable {
     @Column(nullable = false, length = 9)
     private String gender;
 
-    public Person() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(gender, person.gender);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, gender);
-    }
 }
