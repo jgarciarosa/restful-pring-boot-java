@@ -12,6 +12,8 @@ Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
 
 - [MySQL](https://www.mysql.com/)
 
+- [Lombok](https://projectlombok.org/)
+
 
 # Setup da aplicação (local)
 
@@ -22,6 +24,14 @@ Antes de rodar a aplicação é preciso garantir que as seguintes dependências 
 Java 21
 MySQL 8
 Maven 3.9.5 
+```
+Bem como o plugin do Lombok instalado em sua IDE (acesse a página de instalação no site do Lombok), segue orientação para IntelliJ IDEA:
+```
+ * Go to File > Settings > Plugins
+ * Click on Browse repositories...
+ * Search for Lombok Plugin
+ * Click on Install plugin
+ * Restart IntelliJ IDEA 
 ```
 
 ## Preparando ambiente
