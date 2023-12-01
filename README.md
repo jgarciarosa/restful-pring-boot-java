@@ -16,6 +16,8 @@ Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
 
 - [ModelMapper](https://modelmapper.org/)
 
+- [Flyway Core](https://flywaydb.org/)
+
 
 # Setup da aplicação (local)
 
