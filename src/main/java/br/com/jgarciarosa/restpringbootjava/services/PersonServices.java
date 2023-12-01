@@ -1,7 +1,9 @@
 package br.com.jgarciarosa.restpringbootjava.services;
 
 import br.com.jgarciarosa.restpringbootjava.data.models.Person;
+import br.com.jgarciarosa.restpringbootjava.data.vo.v1.PersonVO;
 import br.com.jgarciarosa.restpringbootjava.exceptions.ResourceNotFoundException;
+import br.com.jgarciarosa.restpringbootjava.mapper.modelmapper.ModelMapperConverter;
 import br.com.jgarciarosa.restpringbootjava.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,39 +17,47 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
 
+    @Autowired
+    ModelMapperConverter modelMapperConverter;
+
     Logger logger = Logger.getLogger(PersonServices.class.getName());
 
-    public Person findById(Long id) {
+    public PersonVO findById(Long id) {
 
         logger.info("Encontrando uma pessoa!");
 
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID não encontrado!"));
+        Person entity =  repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+                "ID não encontrado!"));
+
+        return modelMapperConverter.parseObject(entity, PersonVO.class);
     }
 
-    public List<Person> findAll() {
+    public List<PersonVO> findAll() {
 
         logger.info("Encontrando todas pessoas!");
 
-        return repository.findAll();
+        return modelMapperConverter.parseObjectList(repository.findAll(), PersonVO.class);
     }
 
-    public Person create(Person person) {
+    public PersonVO create(PersonVO personVO) {
 
         logger.info("Criando uma pessoa!");
 
-        return repository.save(person);
+        Person entity = modelMapperConverter.parseObject(personVO, Person.class);
+
+        return modelMapperConverter.parseObject(repository.save(entity), PersonVO.class);
     }
 
-    public Person update(Long id, Person person) {
+    public PersonVO update(Long id, PersonVO personVO) {
 
         logger.info("Atualizando uma pessoa!");
         Person entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Id não encontrado!"));
-        entity.setFirstName(person.getFirstName());
-        entity.setLastName(person.getLastName());
-        entity.setGender(person.getGender());
+        entity.setFirstName(personVO.getFirstName());
+        entity.setLastName(personVO.getLastName());
+        entity.setGender(personVO.getGender());
 
-        return repository.save(entity);
+        return modelMapperConverter.parseObject(repository.save(entity), PersonVO.class);
     }
 
     public void delete(Long id) {
