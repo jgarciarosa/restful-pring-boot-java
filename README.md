@@ -14,6 +14,8 @@ Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
 
 - [Lombok](https://projectlombok.org/)
 
+- [ModelMapper](https://modelmapper.org/)
+
 
 # Setup da aplicação (local)
 
@@ -85,7 +87,7 @@ Segue abaixo a API disponível no projeto:
       "gender": "Masculino"
     }
     ```
- - /person (PUT)
+ - /person/{id} (PUT)
      -  Espera atributos no formato JSON para serem critérios de atualização no body da requisição, exemplo:
     ```
     {
