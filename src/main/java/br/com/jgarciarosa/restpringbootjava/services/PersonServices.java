@@ -38,16 +38,16 @@ public class PersonServices {
         return repository.save(person);
     }
 
-    public Person update(Person person) {
+    public Person update(Long id, Person person) {
 
         logger.info("Atualizando uma pessoa!");
-        Person entity = repository.findById(person.getId()).orElseThrow(() -> new ResourceNotFoundException(
+        Person entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Id não encontrado!"));
         entity.setFirstName(person.getFirstName());
         entity.setLastName(person.getLastName());
         entity.setGender(person.getGender());
 
-        return repository.save(person);
+        return repository.save(entity);
     }
 
     public void delete(Long id) {

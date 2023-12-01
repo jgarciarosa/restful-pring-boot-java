@@ -34,10 +34,10 @@ public class PersonController {
         return service.create(person);
     }
 
-    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Person update(@RequestBody Person person) {
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Person update(@PathVariable(value = "id") Long id, @RequestBody Person person) {
 
-        return service.update(person);
+        return service.update(id, person);
     }
 
     @DeleteMapping(value = "/{id}")
