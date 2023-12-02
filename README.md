@@ -78,25 +78,24 @@ Segue abaixo a API disponível no projeto:
 
 #### Person
 
- - /person (GET)
- - /person/{id} (GET)
- - /person (POST)
+ - /api/person/v1 (GET)
+ - /api/person/v1/{id} (GET)
+ - /api/person/v1 (POST)
      - Espera atributos no formato JSON para serem critérios de criação no body da requisição, exemplo:
     ```
     {
-      "firstName":"Jonas",
-      "lastName: "Garcia Rosa",
-      "gender": "Masculino"
+      "person_gender": "Masculino",
+      "person_first_name":"Jonas",
+      "person_last_name: "Garcia Rosa"
     }
     ```
- - /person/{id} (PUT)
+ - /api/person/v1/{id} (PUT)
      -  Espera atributos no formato JSON para serem critérios de atualização no body da requisição, exemplo:
     ```
     {
-      "id": "1"
+      "gender": "Masculino",
       "firstName": "Jonas",
-      "lastName: "G. R.",
-      "gender": "Masculino"
+      "lastName: "G. R."
     }
     ```
- - /person/{id} (DELETE)
+ - /api/person/v1/{id} (DELETE)
