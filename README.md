@@ -18,6 +18,8 @@ Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
 
 - [Flyway Core](https://flywaydb.org/)
 
+- [Jackson Dataformat XML](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml)
+
 
 # Setup da aplicação (local)
 
@@ -72,7 +74,9 @@ Pronto. A aplicação está disponível em http://localhost:8080
 
 # API
 
-O projeto disponibiliza uma API: Person, onde utiliza o padrão Rest de comunicação, produzindo e consumindo arquivos no formato JSON.
+O projeto disponibiliza uma API: Person, onde utiliza o padrão Rest de comunicação, produzindo e consumindo arquivos no formato JSON(padrão) e XML. O cliente da REST API pode expressar qual o tipo de informação que ele deseja receber a resposta através do hearder Accept.
+
+Ex: Accept: Accept: application/xml ou application/json
 
 Segue abaixo a API disponível no projeto:
 
@@ -81,21 +85,40 @@ Segue abaixo a API disponível no projeto:
  - /api/person/v1 (GET)
  - /api/person/v1/{id} (GET)
  - /api/person/v1 (POST)
-     - Espera atributos no formato JSON para serem critérios de criação no body da requisição, exemplo:
+     - Espera atributos no formato JSON para serem critérios de criação no body da requisição.
+     - exemplo json:
     ```
     {
       "person_gender": "Masculino",
       "person_first_name":"Jonas",
-      "person_last_name: "Garcia Rosa"
+      "person_last_name": "Garcia Rosa"
     }
     ```
+     - exemplo xml:
+    ```
+    <PersonVO>
+      <person_gender>Masculino</person_gender>
+      <person_first_name>Jonas</person_first_name>
+      <person_last_name>Garcia Rosa</person_last_name>
+    </PersonVO>
+    ```
+    
  - /api/person/v1/{id} (PUT)
-     -  Espera atributos no formato JSON para serem critérios de atualização no body da requisição, exemplo:
+     -  Espera atributos no formato JSON para serem critérios de atualização no body da requisição.
+     - exemplo json:
     ```
     {
-      "gender": "Masculino",
-      "firstName": "Jonas",
-      "lastName: "G. R."
+      "person_gender": "Masculino",
+      "person_first_name":"Jonas",
+      "person_last_name": "G. R."
     }
+    ```
+     - exemplo xml:
+    ```
+    <PersonVO>
+      <person_gender>Masculino</person_gender>
+      <person_first_name>Jonas</person_first_name>
+      <person_last_name>G. R.</person_last_name>
+    </PersonVO>
     ```
  - /api/person/v1/{id} (DELETE)
