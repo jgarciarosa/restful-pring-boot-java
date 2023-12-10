@@ -1,4 +1,4 @@
-# rest-pring-boot-java
+# restful-pring-boot-java
 
 Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
 
@@ -19,6 +19,8 @@ Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
 - [Flyway Core](https://flywaydb.org/)
 
 - [Jackson Dataformat XML](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml)
+
+- [Soring HATEOAS](https://spring.io/projects/spring-hateoas)
 
 
 # Setup da aplicação (local)
@@ -74,7 +76,7 @@ Pronto. A aplicação está disponível em http://localhost:8080
 
 # API
 
-O projeto disponibiliza uma API: Person, onde utiliza o padrão Rest de comunicação, produzindo e consumindo arquivos no formato JSON(padrão) e XML. O cliente da REST API pode expressar qual o tipo de informação que ele deseja receber a resposta através do hearder Accept.
+O projeto disponibiliza uma API RESTful: Person, onde utiliza o padrão RESTful de comunicação, produzindo e consumindo arquivos no formato JSON(padrão) e XML. O cliente da RESTful API pode expressar qual o tipo de informação que ele deseja receber a resposta através do hearder Accept.
 
 Ex: Accept: Accept: application/xml ou application/json
 
