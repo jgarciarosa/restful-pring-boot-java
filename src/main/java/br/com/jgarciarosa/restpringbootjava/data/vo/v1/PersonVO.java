@@ -6,18 +6,19 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
 
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
-@JsonPropertyOrder({"person_id", "person_gender", "person_first_name", "person_last_name"})
-public class PersonVO implements Serializable {
+@EqualsAndHashCode(of = "idKey", callSuper = false)
+@JsonPropertyOrder({"person_idKey", "person_gender", "person_first_name", "person_last_name"})
+public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
 
-    @JsonProperty("person_id")
-    private Long id;
+    @JsonProperty("person_idKey")
+    private Long idKey;
     @JsonProperty("person_first_name")
     private String firstName;
     @JsonProperty("person_last_name")
