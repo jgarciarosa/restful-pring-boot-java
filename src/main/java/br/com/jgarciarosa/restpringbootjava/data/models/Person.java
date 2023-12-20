@@ -25,5 +25,4 @@ public class Person implements Serializable {
     private String lastName;
     @Column(nullable = false, length = 9)
     private String gender;
-
 }

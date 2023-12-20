@@ -1,5 +1,6 @@
 package br.com.jgarciarosa.restpringbootjava.mapper.modelmapper;
 
+import br.com.jgarciarosa.restpringbootjava.utils.ModelMapperConfig;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,11 +12,11 @@ import java.util.List;
 public class ModelMapperConverter {
 
     @Autowired
-    ModelMapper modelMapper;
+    ModelMapperConfig modelMapperConfig;
 
     public <Origin, Destination> Destination parseObject(Origin origin, Class<Destination> destinationClass) {
 
-        return modelMapper.map(origin, destinationClass);
+        return modelMapperConfig.modelMapper().map(origin, destinationClass);
     }
 
     public <Origin, Destination> List<Destination> parseObjectList(List<Origin> origins, Class<Destination>
@@ -23,7 +24,7 @@ public class ModelMapperConverter {
 
         List<Destination> destinations = new ArrayList<>();
         for (Origin origin : origins) {
-            destinations.add(modelMapper.map(origin, destnationClass));
+            destinations.add(modelMapperConfig.modelMapper().map(origin, destnationClass));
         }
 
         return destinations;

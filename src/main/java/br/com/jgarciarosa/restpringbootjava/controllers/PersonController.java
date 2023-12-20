@@ -1,6 +1,5 @@
 package br.com.jgarciarosa.restpringbootjava.controllers;
 
-import br.com.jgarciarosa.restpringbootjava.data.models.Person;
 import br.com.jgarciarosa.restpringbootjava.data.vo.v1.PersonVO;
 import br.com.jgarciarosa.restpringbootjava.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;

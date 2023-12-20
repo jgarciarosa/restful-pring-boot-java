@@ -14,10 +14,10 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "idKey", callSuper = false)
-@JsonPropertyOrder({"person_idKey", "person_gender", "person_first_name", "person_last_name"})
+@JsonPropertyOrder({"person_id_key", "person_gender", "person_first_name", "person_last_name"})
 public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
 
-    @JsonProperty("person_idKey")
+    @JsonProperty("person_id_key")
     private Long idKey;
     @JsonProperty("person_first_name")
     private String firstName;
