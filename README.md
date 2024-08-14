@@ -72,7 +72,7 @@ Finalizado esse passo, vamos iniciar a aplicação:
 ```
 mvn spring-boot:run
 ```
-Pronto. A aplicação está disponível em http://localhost:8080
+Pronto. A aplicação está disponível em http://localhost:8080/api/person/v1
 
 # API
 
